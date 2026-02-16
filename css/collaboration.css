@@ -1,0 +1,147 @@
+/* =========================================
+   SECTION: THREE TRACKS
+   ========================================= */
+.collaboration {
+  padding: 0 0 48px;
+}
+.collab-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.collab-header h2 { margin-bottom: 16px; }
+.collab-header p {
+  max-width: 640px;
+  margin: 0 auto;
+  color: var(--color-text-secondary-dark);
+}
+
+.collab-visual {
+  position: relative;
+  background: var(--color-surface-dark);
+  border: 1px solid var(--color-border-dark);
+  border-radius: 12px;
+  padding: 32px;
+  min-height: 200px;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+.collab-tracks-board {
+  position: relative;
+}
+.collab-swim-lane {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+}
+.collab-swim-lane + .collab-swim-lane {
+  border-top: 1px solid var(--color-border-dark);
+}
+.collab-lane-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  width: 90px;
+  flex-shrink: 0;
+}
+.collab-lane-cards {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.collab-card {
+  background: var(--color-surface-dark);
+  border: 1px solid var(--color-border-dark);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 0.75rem;
+  color: var(--color-text-primary-dark);
+  transition: border-color var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+}
+
+/* Three-column feature cards */
+.collab-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.collab-feature {
+  padding: 24px;
+  background: var(--color-surface-dark);
+  border: 1px solid var(--color-border-dark);
+  border-radius: 10px;
+}
+.collab-feature h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--color-text-primary-dark);
+}
+.collab-feature p {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary-dark);
+  line-height: 1.6;
+}
+.collab-feature-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--color-accent-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+/* Merge animation: two cursors converge and flash "merged" */
+@keyframes mergeConvergeLeft {
+  0%, 60%  { transform: translateX(-24px); opacity: 0.8; }
+  70%      { transform: translateX(0); opacity: 1; }
+  75%      { transform: translateX(0); opacity: 0; }
+  100%     { transform: translateX(-24px); opacity: 0; }
+}
+@keyframes mergeConvergeRight {
+  0%, 60%  { transform: translateX(24px); opacity: 0.8; }
+  70%      { transform: translateX(0); opacity: 1; }
+  75%      { transform: translateX(0); opacity: 0; }
+  100%     { transform: translateX(24px); opacity: 0; }
+}
+@keyframes mergeFlash {
+  0%, 69%  { opacity: 0; transform: scale(0.8); }
+  72%      { opacity: 1; transform: scale(1.1); }
+  80%      { opacity: 1; transform: scale(1); }
+  90%, 100% { opacity: 0; transform: scale(0.8); }
+}
+.merge-anim {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  margin-top: 10px;
+}
+.merge-cursor-a, .merge-cursor-b {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: #fff;
+  position: absolute;
+}
+.merge-cursor-a {
+  background: #c07828;
+  animation: mergeConvergeLeft 6s ease-in-out infinite;
+}
+.merge-cursor-b {
+  background: #1868db;
+  animation: mergeConvergeRight 6s ease-in-out infinite;
+}
+.merge-flash {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  animation: mergeFlash 6s ease-in-out infinite;
+}

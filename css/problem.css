@@ -1,0 +1,240 @@
+/* =========================================
+   SECTION 3: THE PROBLEM — PIPELINE SQUEEZE
+   Looping three-phase animation:
+     1. Equal bars (before)
+     2. Squeezed: code shrinks, everything else swells (problem)
+     3. Resolved: all bars compress evenly (solution)
+     → loops back to 1
+   ========================================= */
+.problem {
+  padding: 120px 0 80px;
+}
+
+.problem-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.problem-header h2 { margin-bottom: 16px; }
+.problem-header p { max-width: 600px; margin: 0 auto; }
+
+/* ---- PIPELINE VISUAL ---- */
+.pipeline-wrap {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 0 76px;
+}
+
+.pipeline {
+  display: flex;
+  align-items: stretch;
+  gap: 2px;
+  height: 280px;
+  position: relative;
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Stage widths stay equal in all phases — only heights change */
+
+/* The bar inside each stage */
+.stage-bar {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  min-height: 20px;
+  overflow: hidden;
+  transition: height 1.2s var(--ease-out), background 0.8s ease;
+}
+
+/* Phase 1: moderate equal bars, code slightly taller */
+.stage-plan .stage-bar    { height: 110px; background: #c8cdd6; }
+.stage-code .stage-bar    { height: 110px; background: #c8cdd6; }
+.stage-review .stage-bar  { height: 110px; background: #c8cdd6; }
+.stage-handoff .stage-bar { height: 110px; background: #c8cdd6; }
+.stage-deploy .stage-bar  { height: 110px; background: #c8cdd6; }
+.stage-monitor .stage-bar { height: 110px; background: #c8cdd6; }
+
+/* Phase 2: code shrinks, everything else shoots up */
+.pipeline.squeezed .stage-code .stage-bar    { height: 32px; background: var(--color-operations); }
+.pipeline.squeezed .stage-plan .stage-bar    { height: 180px; background: #d4956a; }
+.pipeline.squeezed .stage-review .stage-bar  { height: 250px; background: #d4956a; }
+.pipeline.squeezed .stage-handoff .stage-bar { height: 165px; background: #d4956a; }
+.pipeline.squeezed .stage-deploy .stage-bar  { height: 115px; background: #d4956a; }
+.pipeline.squeezed .stage-monitor .stage-bar { height: 155px; background: #d4956a; }
+
+/* Phase 3: bars proportional to resolved times (2d, 1d, 4h, 4h, 1d, cont.) */
+.pipeline.resolved .stage-bar {
+  transition: height 0.6s var(--ease-out), background 0.4s ease, box-shadow 0.6s ease;
+  transition-delay: 0s;
+}
+.pipeline.resolved .stage-plan .stage-bar    { height: 100px; background: #4dabf5; box-shadow: 0 0 16px rgba(77, 171, 245, 0.3); }
+.pipeline.resolved .stage-code .stage-bar    { height: 50px; background: #2faf6a; box-shadow: 0 0 16px rgba(47, 175, 106, 0.3); }
+.pipeline.resolved .stage-review .stage-bar  { height: 28px; background: #a599ff; box-shadow: 0 0 16px rgba(165, 153, 255, 0.3); }
+.pipeline.resolved .stage-handoff .stage-bar { height: 28px; background: #5ee8a0; box-shadow: 0 0 16px rgba(94, 232, 160, 0.3); }
+.pipeline.resolved .stage-deploy .stage-bar  { height: 50px; background: #f5c542; box-shadow: 0 0 16px rgba(245, 197, 66, 0.3); }
+.pipeline.resolved .stage-monitor .stage-bar { height: 40px; background: #4dabf5; box-shadow: 0 0 16px rgba(77, 171, 245, 0.3); }
+
+/* Pressure pulse on bottleneck stages — phase 2 only */
+.pipeline.squeezed:not(.resolved) .stage:not(.stage-code) .stage-bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(229, 105, 16, 0.08);
+  animation: pressure-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pressure-pulse {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* Success flash on resolved bars */
+.pipeline.resolved .stage-bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(94, 232, 160, 0.3);
+  animation: success-flash 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+@keyframes success-flash {
+  0% { opacity: 0.6; }
+  100% { opacity: 0; }
+}
+
+/* Stage labels */
+.stage-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--color-text-secondary-dark);
+  text-align: center;
+  white-space: normal;
+  word-wrap: break-word;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding-top: 8px;
+}
+
+/* Time indicators */
+.stage-time {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: var(--color-text-secondary-dark);
+  order: -1;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  white-space: nowrap;
+  padding-bottom: 6px;
+}
+
+.pipeline.squeezed .stage-time { opacity: 1; }
+.pipeline.resolved .stage-time { opacity: 1; }
+
+/* ---- ANNOTATIONS ---- */
+
+/* Annotation container — all occupy same slot */
+.baseline-annotation,
+.squeeze-annotation,
+.resolve-annotation {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary-dark);
+  opacity: 0;
+  transform: translateY(8px);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Baseline annotation: visible by default, hides during squeeze/resolve */
+.baseline-annotation {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.pipeline-wrap.phase-squeeze .baseline-annotation,
+.pipeline-wrap.phase-resolve .baseline-annotation {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+/* Phase 2 annotation */
+.squeeze-annotation {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.pipeline-wrap.phase-squeeze .squeeze-annotation {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pipeline-wrap.phase-resolve .squeeze-annotation {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+.pipeline-wrap.phase-reset .squeeze-annotation {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.squeeze-annotation strong {
+  color: #e56910;
+  font-weight: 600;
+}
+
+/* Phase 3 annotation */
+.resolve-annotation {
+  transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
+}
+
+.pipeline-wrap.phase-resolve .resolve-annotation {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pipeline-wrap.phase-reset .resolve-annotation {
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.resolve-annotation strong {
+  color: #2faf6a;
+  font-weight: 600;
+}
+
+/* ---- FIREWORK PARTICLES ---- */
+.pipeline-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  .stage-label { font-size: 0.62rem; }
+}
+@media (max-width: 480px) {
+  .stage-label { font-size: 0.55rem; }
+}

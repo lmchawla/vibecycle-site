@@ -1,0 +1,730 @@
+/* =========================================
+   SECTION: OBSERVABILITY (section-light)
+   Dashboard mockup stays dark-themed as an
+   embedded UI preview. Surrounding content
+   uses light-theme tokens.
+   ========================================= */
+.observability {
+  padding: 80px 0 64px;
+}
+.obs-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.obs-header h2 { margin-bottom: 16px; }
+.obs-header p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--color-text-secondary-light);
+}
+
+/* --- Dashboard chrome (dark-themed embed) --- */
+.obs-dashboard {
+  background: var(--color-surface-dark);
+  border: 1px solid var(--color-border-dark);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+.obs-dash-chrome {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border-dark);
+  background: rgba(255,255,255,0.02);
+}
+.obs-dash-dots {
+  display: flex;
+  gap: 6px;
+}
+.obs-dash-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-border-dark);
+}
+.obs-dash-title {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary-dark);
+  flex: 1;
+}
+.obs-dash-live {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-operations);
+}
+.obs-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-operations);
+  animation: obsLivePulse 2s ease-in-out infinite;
+}
+@keyframes obsLivePulse {
+  0%, 100% { opacity: 0.4; box-shadow: 0 0 0 0 rgba(45, 138, 94, 0.4); }
+  50% { opacity: 1; box-shadow: 0 0 0 4px rgba(45, 138, 94, 0); }
+}
+
+/* --- Dashboard body (dark-themed) --- */
+.obs-dash-body {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 280px;
+}
+
+/* --- Agent status panel (dark-themed) --- */
+.obs-agents-panel {
+  border-right: 1px solid var(--color-border-dark);
+  padding: 24px;
+}
+.obs-panel-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary-dark);
+  margin-bottom: 16px;
+}
+.obs-agent-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.obs-agent-row {
+  display: grid;
+  grid-template-columns: 8px 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 8px;
+  border-radius: 6px;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+.obs-agent-row:hover {
+  background: rgba(255,255,255,0.03);
+}
+.obs-agent-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+.obs-agent-dot.working {
+  background: var(--color-operations);
+  animation: obsLivePulse 2.5s ease-in-out infinite;
+}
+.obs-agent-dot.waiting {
+  background: var(--color-discovery);
+  animation: obsLivePulse 3s ease-in-out infinite;
+}
+.obs-agent-dot.idle {
+  background: var(--color-border-dark);
+}
+.obs-agent-dot.escalated {
+  background: var(--color-gate);
+  animation: obsLivePulse 1.5s ease-in-out infinite;
+}
+.obs-agent-name {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-primary-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.obs-agent-status {
+  font-size: 0.7rem;
+  color: var(--color-text-secondary-dark);
+  white-space: nowrap;
+}
+.obs-confidence {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.obs-confidence.high {
+  background: rgba(45, 138, 94, 0.12);
+  color: var(--color-operations);
+}
+.obs-confidence.mid {
+  background: rgba(192, 120, 40, 0.12);
+  color: var(--color-discovery);
+}
+.obs-confidence.low {
+  background: rgba(192, 64, 64, 0.12);
+  color: var(--color-gate);
+}
+
+/* --- Right panel (dark-themed) --- */
+.obs-right-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+/* --- Activity feed (dark-themed) --- */
+.obs-feed {
+  flex: 1;
+}
+.obs-feed-items {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.obs-feed-item {
+  display: grid;
+  grid-template-columns: 60px 120px 1fr;
+  gap: 12px;
+  padding: 9px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  align-items: baseline;
+}
+.obs-feed-item:last-child { border-bottom: none; }
+.obs-feed-time {
+  font-size: 0.7rem;
+  color: var(--color-text-secondary-dark);
+  opacity: 0.7;
+}
+.obs-feed-agent {
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.disc-text { color: var(--color-discovery); }
+.del-text { color: var(--color-delivery); }
+.ops-text { color: var(--color-operations); }
+.gate-text { color: var(--color-gate); }
+.obs-feed-action {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary-dark);
+  line-height: 1.5;
+}
+
+/* --- Metrics strip (dark-themed) --- */
+.obs-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-top: 24px;
+  background: var(--color-border-dark);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.obs-metric {
+  background: var(--color-surface-dark);
+  padding: 16px 12px;
+  text-align: center;
+}
+.obs-metric-value {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary-dark);
+  margin-bottom: 4px;
+}
+.obs-metric-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary-dark);
+}
+
+/* --- Git-native visual (dark-themed embed) --- */
+.obs-git-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.obs-git-card {
+  background: var(--color-surface-dark);
+  border: 1px solid var(--color-border-dark);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.obs-git-card-label {
+  padding: 10px 16px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-text-secondary-dark);
+  border-bottom: 1px solid var(--color-border-dark);
+  background: rgba(255,255,255,0.02);
+}
+.obs-git-commits {
+  padding: 12px 16px;
+}
+.obs-git-commit {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.obs-git-commit:last-child { border-bottom: none; }
+.obs-git-hash {
+  font-size: 0.7rem;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+.obs-git-msg {
+  font-size: 0.72rem;
+  color: var(--color-text-primary-dark);
+  line-height: 1.4;
+}
+/* --- Git concepts: visual demos --- */
+.obs-git-concepts {
+  padding: 12px;
+}
+
+/* "Try ideas in parallel" — GitKraken-style graph */
+.obs-graph {
+  display: flex;
+  gap: 12px;
+  position: relative;
+  min-height: 200px;
+}
+.obs-graph-svg {
+  width: 60px;
+  height: 200px;
+  flex-shrink: 0;
+}
+.obs-graph-labels {
+  position: relative;
+  flex: 1;
+}
+.obs-graph-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.obs-graph-label-name {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--color-text-primary-dark);
+  white-space: nowrap;
+}
+.obs-graph-label-badge {
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 2px 7px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+/* "Undo anything" — revert visualization */
+.obs-undo-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.obs-undo-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.03);
+}
+.obs-undo-revert {
+  background: rgba(45, 138, 94, 0.08);
+  border: 1px solid rgba(45, 138, 94, 0.15);
+}
+.obs-undo-icon {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+}
+.obs-undo-text {
+  font-size: 0.72rem;
+  color: var(--color-text-primary-dark);
+  line-height: 1.4;
+}
+
+/* Shared caption */
+.obs-concept-caption {
+  font-size: 0.72rem;
+  color: var(--color-text-secondary-dark);
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+.obs-git-yaml {
+  padding: 12px 16px;
+}
+.obs-git-yaml pre {
+  font-size: 0.72rem;
+  line-height: 1.7;
+  color: var(--color-text-primary-dark);
+  margin: 0;
+}
+.yaml-key {
+  color: var(--color-accent);
+}
+.yaml-prop {
+  color: var(--color-text-secondary-dark);
+}
+
+/* =========================================
+   AGENT DRILLDOWN: Reasoning chain
+   (inside dark-themed dashboard embed)
+   ========================================= */
+.obs-agent-row-expanded {
+  background: rgba(192, 64, 64, 0.06);
+  border-radius: 6px;
+  grid-template-columns: 8px 1fr auto auto auto;
+}
+.obs-expand-hint {
+  font-size: 0.65rem;
+  color: var(--color-text-secondary-dark);
+  opacity: 0.6;
+  margin-left: 2px;
+}
+.obs-agent-drilldown {
+  margin: 0 8px 8px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 6px;
+  border-left: 2px solid var(--color-gate);
+}
+.obs-drilldown-chain {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.obs-chain-step {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.obs-chain-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary-dark);
+}
+.obs-chain-value {
+  font-size: 0.7rem;
+  color: var(--color-text-primary-dark);
+  line-height: 1.4;
+}
+.obs-chain-value code {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  background: rgba(192, 64, 64, 0.1);
+  color: var(--color-gate);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+.obs-chain-arrow {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary-dark);
+  opacity: 0.5;
+  padding-top: 14px;
+  flex-shrink: 0;
+}
+.obs-drilldown-commit {
+  display: block;
+  text-align: right;
+  margin-top: 10px;
+  font-size: 0.65rem;
+  color: var(--color-text-secondary-dark);
+  opacity: 0.6;
+}
+
+/* =========================================
+   OBSERVABILITY LAYERS
+   (outside dashboard, on section-light bg)
+   ========================================= */
+.obs-layers {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.obs-layers-horizontal {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+  margin-bottom: 0;
+}
+.obs-layers-horizontal .obs-layer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--color-border-light);
+  border-radius: 10px;
+}
+.obs-layers-horizontal .obs-layer-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid var(--color-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.obs-layers-horizontal .obs-layer-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.obs-layer {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+.obs-layer-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 48px;
+  flex-shrink: 0;
+}
+.obs-layer-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid var(--color-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.obs-layer-bar {
+  flex: 1;
+  width: 2px;
+  background: var(--color-border-light);
+  min-height: 20px;
+}
+.obs-layer-bar-last {
+  flex: 1;
+  width: 2px;
+  background: transparent;
+  min-height: 20px;
+}
+.obs-layer-content {
+  flex: 1;
+  padding-bottom: 0;
+}
+.obs-layer:last-child .obs-layer-content {
+  padding-bottom: 0;
+}
+.obs-layer-content h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-primary-light);
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+.obs-layer-content p {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary-light);
+  line-height: 1.45;
+  margin-bottom: 0;
+  max-width: none;
+}
+.obs-layer-demo {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+.obs-layer-demo .dur-demo {
+  width: 100%;
+}
+.obs-layer-demo .obs-consensus {
+  margin-top: 0;
+}
+
+/* --- Rollback timeline --- */
+.obs-rollback-timeline {
+  position: relative;
+  padding-left: 32px;
+  margin-top: 12px;
+}
+.obs-rollback-timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--color-border-dark);
+}
+.obs-timeline-event {
+  position: relative;
+  padding-left: 8px;
+  margin-bottom: 12px;
+}
+.obs-timeline-event::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-operations);
+  border: 2px solid var(--color-surface-dark);
+  z-index: 1;
+}
+.obs-timeline-event--spike::before {
+  background: var(--color-gate);
+}
+.obs-timeline-event--rollback::before {
+  background: var(--color-accent);
+}
+.obs-timeline-label {
+  font-size: 0.72rem;
+  color: var(--color-text-primary-dark);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.obs-timeline-meta {
+  font-size: 0.65rem;
+  color: var(--color-text-secondary-dark);
+  font-family: var(--font-mono);
+}
+
+/* --- Git-native standalone section --- */
+.git-native {
+  padding: 48px 0;
+}
+
+.observability.section-dark .obs-git-card {
+  background: var(--color-surface-dark);
+  border-color: var(--color-border-dark);
+}
+.observability.section-dark .obs-git-card-label {
+  color: var(--color-text-secondary-dark);
+}
+.observability.section-dark .obs-git-msg {
+  color: var(--color-text-primary-dark);
+}
+.observability.section-dark .obs-git-hash {
+  color: var(--color-accent);
+}
+.observability.section-dark .obs-layer-content h3 {
+  color: var(--color-text-primary-dark);
+}
+.observability.section-dark .obs-layer-content p {
+  color: var(--color-text-secondary-dark);
+}
+
+/* =========================================
+   CONSENSUS VISUAL (CSS-only animation)
+   ========================================= */
+.obs-consensus {
+  margin-top: 12px;
+}
+.obs-consensus-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.obs-consensus-agent {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-text-primary-light);
+  width: 22px;
+  flex-shrink: 0;
+}
+.obs-consensus-vote {
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 6px;
+  border-radius: 3px;
+  width: 36px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.obs-consensus-vote.ship {
+  background: rgba(45, 138, 94, 0.12);
+  color: var(--color-operations);
+}
+.obs-consensus-vote.hold {
+  background: rgba(192, 64, 64, 0.12);
+  color: var(--color-gate);
+}
+.obs-consensus-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.obs-consensus-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 3px;
+  background: var(--color-operations);
+  animation: consensusFill 3s ease-out infinite;
+}
+.obs-consensus-fill--hold {
+  background: var(--color-gate);
+}
+@keyframes consensusFill {
+  0% { width: 0; }
+  30% { width: var(--target-width); }
+  80% { width: var(--target-width); }
+  100% { width: 0; }
+}
+.obs-consensus-pct {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--color-text-secondary-light);
+  width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.obs-consensus-result {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-operations);
+  margin-top: 4px;
+  animation: consensusResultFade 3s ease infinite;
+}
+@keyframes consensusResultFade {
+  0%, 25% { opacity: 0; }
+  35%, 80% { opacity: 1; }
+  95%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .obs-consensus-fill {
+    animation: none;
+    width: var(--target-width);
+  }
+  .obs-consensus-result {
+    animation: none;
+    opacity: 1;
+  }
+}
+

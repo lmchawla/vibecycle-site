@@ -1,0 +1,56 @@
+/* =========================================
+   PROBLEM CARDS — light, compact
+   ========================================= */
+.problem-cards {
+  padding: 56px 0;
+  border-top: 1px solid var(--color-border-light);
+}
+.problem-cards-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.problem-cards-header h2 {
+  margin-bottom: 0;
+  color: var(--color-text-primary-light);
+}
+.pc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.pc-card {
+  padding: 20px 18px;
+  background: #fff;
+  border: 1px solid var(--color-border-light);
+  border-radius: 8px;
+  transition: border-color 0.2s ease;
+}
+.pc-card:hover {
+  border-color: var(--color-accent);
+}
+.pc-icon {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  display: block;
+  line-height: 1;
+}
+.pc-card h3 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-primary-light);
+  margin-bottom: 5px;
+  letter-spacing: -0.01em;
+}
+.pc-card p {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary-light);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .pc-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .pc-grid { grid-template-columns: 1fr; }
+  .problem-cards { padding: 40px 0; }
+}

@@ -1,0 +1,31 @@
+/* =========================================
+   DESIGN TOKENS
+   ========================================= */
+:root {
+  --color-bg-dark: #0d1526;
+  --color-bg-light: #f5f6f8;
+  --color-bg-mid: #101c30;
+  --color-surface-dark: #142035;
+  --color-surface-light: #ebedf0;
+  --color-border-dark: #1e3050;
+  --color-border-light: #d0d5dd;
+  --color-text-primary-light: #1a1e2c;
+  --color-text-secondary-light: #525868;
+  --color-text-primary-dark: #e2e5eb;
+  --color-text-secondary-dark: #9ba3b5;
+  --color-accent: #6d5ff5;
+  --color-accent-hover: #5a4de0;
+  --color-accent-subtle: rgba(109, 95, 245, 0.12);
+  --color-discovery: #c07828;
+  --color-delivery: #1868db;
+  --color-operations: #2d8a5e;
+  --color-gate: #c04040;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --duration-fast: 200ms;
+  --duration-normal: 350ms;
+  --section-padding: 120px;
+  --max-width: 1200px;
+}

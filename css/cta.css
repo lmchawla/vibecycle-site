@@ -1,0 +1,40 @@
+/* =========================================
+   SECTION 10: FINAL CTA
+   ========================================= */
+.final-cta {
+  padding: 80px 0;
+  text-align: center;
+  position: relative;
+}
+.final-cta h2 { margin-bottom: 20px; }
+.final-cta-sub {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary-light);
+  margin-bottom: 40px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.final-cta .btn-primary {
+  padding: 18px 48px;
+  font-size: 1.1rem;
+}
+.final-cta-fine {
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary-light);
+}
+
+/* Subtle bg accent on final CTA */
+.final-cta::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(24, 104, 219, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}

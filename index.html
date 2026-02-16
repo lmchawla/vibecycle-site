@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>vibecycle | Collaboration layer for AI-native teams.</title>
+<meta name="description" content="Every decision auditable, every workflow durable, every signal actionable. From ideation to production.">
+<meta property="og:title" content="vibecycle | Collaboration layer for AI-native teams.">
+<meta property="og:description" content="Every decision auditable, every workflow durable, every signal actionable. From ideation to production.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://lmchawla.github.io/vibecycle-site/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lmchawla.github.io/vibecycle-site/og-image.jpg">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;600&display=swap" rel="stylesheet">
+<!-- CSS: Design tokens and base styles -->
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<!-- CSS: Section-specific styles -->
+<link rel="stylesheet" href="css/problem.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/problem-cards.css">
+<link rel="stylesheet" href="css/architecture.css">
+<link rel="stylesheet" href="css/orchestration.css">
+<link rel="stylesheet" href="css/visibility.css">
+<link rel="stylesheet" href="css/collaboration.css">
+<link rel="stylesheet" href="css/cta.css">
+<!-- CSS: Consolidated responsive overrides (must load last) -->
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- ================================ NAV ================================ -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="#board" class="nav-logo">
+      <svg class="nav-logo-mark" width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="13" stroke="#4dabf5" stroke-width="3" stroke-linecap="round" stroke-dasharray="22.7 59" transform="rotate(-90 16 16)"/>
+        <circle cx="16" cy="16" r="10" stroke="#1868db" stroke-width="3" stroke-linecap="round" stroke-dasharray="17.5 45.3" transform="rotate(30 16 16)"/>
+        <circle cx="16" cy="16" r="7" stroke="#6d5ff5" stroke-width="3" stroke-linecap="round" stroke-dasharray="12.2 31.8" transform="rotate(150 16 16)"/>
+      </svg>
+      <span class="nav-logo-word">vibe<strong>cycle</strong></span>
+    </a>
+    <button class="nav-hamburger" aria-label="Menu" aria-expanded="false" onclick="var m=this.nextElementSibling;m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="nav-links">
+      <a href="#board">How it works</a>
+      <a href="#orchestration">Orchestration</a>
+      <a href="https://calendly.com/lalit-lmc/30min" target="_blank" class="btn-primary nav-cta">Book a demo</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================================ 1. HERO ================================ -->
+<section class="hero section-light" id="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-top-row">
+        <div class="hero-text">
+          <h1 class="headline-xl">Collaboration layer for AI-native teams.</h1>
+          <p class="hero-sub-text">Coordinate agents, humans, and parallel workstreams in one shared workspace. Every decision auditable, every workflow durable, every signal actionable. From ideation to production.</p>
+
+          <div class="hero-ctas">
+            <a href="#board" class="btn-primary">See how it works</a>
+          </div>
+        </div>
+        <div class="hero-problem">
+          <div class="pipeline-wrap" id="pipelineWrap">
+            <div class="pipeline" id="pipeline">
+              <div class="stage stage-plan">
+                <div class="stage-bar"></div>
+                <div class="stage-label">Planning</div>
+              </div>
+              <div class="stage stage-code">
+                <div class="stage-bar"></div>
+                <div class="stage-label">Code</div>
+              </div>
+              <div class="stage stage-review">
+                <div class="stage-bar"></div>
+                <div class="stage-label">Review</div>
+              </div>
+              <div class="stage stage-handoff">
+                <div class="stage-bar"></div>
+                <div class="stage-label">Handoffs</div>
+              </div>
+              <div class="stage stage-deploy">
+                <div class="stage-bar"></div>
+                <div class="stage-label">Deploy</div>
+              </div>
+              <div class="stage stage-monitor">
+                <div class="stage-bar"></div>
+                <div class="stage-label">Monitor</div>
+              </div>
+            </div>
+            <div class="baseline-annotation">
+              You already feel it.
+            </div>
+            <div class="squeeze-annotation">
+              Squeeze one stage. <strong>The rest balloons.</strong>
+            </div>
+            <div class="resolve-annotation">
+              <strong>Unless you manage the whole lifecycle.</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ 2. PROBLEM ================================ -->
+<section class="problem-cards section-light" id="problem-cards">
+  <div class="container">
+    <div class="problem-cards-header reveal">
+      <h2 class="headline-lg">Work stalls in the gaps between people, agents, and handoffs.</h2>
+    </div>
+    <div class="pc-grid reveal">
+      <div class="pc-card">
+        <span class="pc-icon">⏸</span>
+        <h3>Context evaporates between sessions</h3>
+        <p>A decision waits for context someone forgot to write down. The reasoning disappears into a closed browser tab.</p>
+      </div>
+      <div class="pc-card">
+        <span class="pc-icon">⛔</span>
+        <h3>Merge queue gridlock</h3>
+        <p>Multiple workstreams converge on the same codebase. Rebasing fights and merge conflicts turn parallel work into serial pain.</p>
+      </div>
+      <div class="pc-card">
+        <span class="pc-icon">◉</span>
+        <h3>No single source of truth</h3>
+        <p>Work lives in Jira, Slack threads, Google Docs, and someone's head. No system knows the real state of a feature.</p>
+      </div>
+      <div class="pc-card">
+        <span class="pc-icon">⚙</span>
+        <h3>Manual orchestration overhead</h3>
+        <p>Nobody should spend their week routing status updates between humans and agents. Let the workspace handle the choreography.</p>
+      </div>
+      <div class="pc-card">
+        <span class="pc-icon">▤</span>
+        <h3>Work without receipts</h3>
+        <p>A feature waits for design review. A release waits for CI. Who decided what, when did it land, what was the tradeoff?</p>
+      </div>
+      <div class="pc-card">
+        <span class="pc-icon">⇥</span>
+        <h3>Brittle handoffs</h3>
+        <p>Design to eng. Eng to QA. QA to release. Every transition point loses momentum and fidelity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ 3. BOARD DEMO ================================ -->
+<section class="board-section section-dark" id="board">
+  <div class="container">
+    <h2 class="board-header headline-lg reveal">Stop duct-taping your process together.</h2>
+    <div class="board-cta reveal" style="text-align:center; margin-bottom:32px;">
+      <a href="https://calendly.com/lalit-lmc/30min" target="_blank" class="btn-primary">Get started free</a>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-demo">
+        <div class="demo-topbar">
+          <div class="demo-topbar-left">
+            <span class="demo-logo">
+              <svg class="demo-logo-mark" width="16" height="16" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <circle cx="16" cy="16" r="12" stroke="#4dabf5" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="20.9 54.5" transform="rotate(-90 16 16)"/>
+                <circle cx="16" cy="16" r="8" stroke="#1868db" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="14 36.3" transform="rotate(30 16 16)"/>
+              </svg>
+              <span class="demo-logo-word">vibe<strong>cycle</strong></span>
+            </span>
+            <span class="demo-breadcrumb">Relay / <span class="demo-breadcrumb-page">Board</span></span>
+          </div>
+          <div class="demo-topbar-right">
+            <span class="demo-search mono">&#8984;K</span>
+            <span class="demo-monitor-widget" id="monitorWidget">
+              <span class="demo-monitor-dot" id="monitorDot"></span>
+              <span class="demo-monitor-label" id="monitorLabel">API response times</span>
+            </span>
+          </div>
+        </div>
+        <div class="demo-app">
+          <div class="demo-sidebar">
+            <div class="demo-sidebar-views">
+              <div class="demo-sv demo-sv--active"><span class="demo-sv-icon">&#9638;</span> Board</div>
+              <div class="demo-sv"><span class="demo-sv-icon">&#9472;</span> Timeline</div>
+              <div class="demo-sv"><span class="demo-sv-icon">&#9888;</span> Alerts<span class="demo-sv-badge demo-sv-badge--alerts demo-sv-badge--zero" id="sidebarAlerts">0</span></div>
+              <div class="demo-sv"><span class="demo-sv-icon">&#9881;</span> Blueprint</div>
+              <div class="demo-sv"><span class="demo-sv-icon">&#9670;</span> Memory<span class="demo-sv-badge" id="sidebarMemory" style="background:var(--color-delivery);">3</span></div>
+            </div>
+            <div class="demo-sidebar-section">
+              <div class="demo-sidebar-label">Tracks</div>
+              <div class="demo-st"><span class="demo-st-dot" style="background:var(--color-discovery);"></span>Discovery<span class="demo-st-count" id="sidebarDiscovery">8</span></div>
+              <div class="demo-st"><span class="demo-st-dot" style="background:var(--color-delivery);"></span>Delivery<span class="demo-st-count" id="sidebarDelivery">14</span></div>
+              <div class="demo-st"><span class="demo-st-dot" style="background:var(--color-operations);"></span>Operations<span class="demo-st-count" id="sidebarOps">6</span></div>
+            </div>
+            <div class="demo-sidebar-section">
+              <div class="demo-sidebar-label">Agents</div>
+              <div class="demo-sa" id="agentHarvester"><span class="demo-sa-dot active"></span><span class="demo-sa-name">Signal Harvester</span><span class="demo-sa-status mono" id="agentHarvesterStatus">coll.</span></div>
+              <div class="demo-sa" id="agentConductor"><span class="demo-sa-dot active" style="animation-delay:-0.8s;"></span><span class="demo-sa-name">Build Conductor</span><span class="demo-sa-status mono" id="agentConductorStatus">build</span></div>
+              <div class="demo-sa" id="agentWatcher"><span class="demo-sa-dot active" style="animation-delay:-1.5s;"></span><span class="demo-sa-name">Health Watcher</span><span class="demo-sa-status mono" id="agentWatcherStatus">mon.</span></div>
+            </div>
+            <div class="demo-sidebar-section">
+              <div class="demo-sidebar-label">Background</div>
+              <div class="demo-sa" id="agentScanner"><span class="demo-sa-dot bg-worker"></span><span class="demo-sa-name">Coverage Scanner</span><span class="demo-sa-status mono" id="agentScannerStatus">scan</span></div>
+              <div class="demo-sa" id="agentOptimizer"><span class="demo-sa-dot bg-worker" style="animation-delay:-1.2s;"></span><span class="demo-sa-name">Perf Optimizer</span><span class="demo-sa-status mono" id="agentOptimizerStatus">opt.</span></div>
+            </div>
+          </div>
+          <div class="demo-board">
+            <div class="demo-board-cols">
+              <div class="demo-col" data-col="research"><div class="demo-col-head">Research</div><div class="demo-col-cards"></div></div>
+              <div class="demo-col" data-col="spec"><div class="demo-col-head">Spec</div><div class="demo-col-cards"></div></div>
+              <div class="demo-col" data-col="build"><div class="demo-col-head">Build</div><div class="demo-col-cards"></div></div>
+              <div class="demo-col" data-col="review"><div class="demo-col-head">Review</div><div class="demo-col-cards"></div></div>
+              <div class="demo-col" data-col="deploy"><div class="demo-col-head">Deploy</div><div class="demo-col-cards"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-ticker" id="heroTicker">
+          <div class="demo-ticker-text" id="heroTickerText"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ 4. VISIBILITY ================================ -->
+<section class="observability section-light" id="usp">
+  <div class="container">
+    <div class="obs-header reveal">
+      <h2 class="headline-lg">Enterprise-grade agentic engineering.</h2>
+    </div>
+
+    <div class="obs-layers obs-layers-horizontal reveal">
+
+      <div class="obs-layer">
+        <div class="obs-layer-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 9h8M8 13h5" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="obs-layer-content">
+          <h3>Agent reasoning</h3>
+          <p>Every decision logged with reasoning. When an agent blocks a deploy or promotes a feature, you know exactly why.</p>
+        </div>
+      </div>
+
+      <div class="obs-layer">
+        <div class="obs-layer-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 20l5-5 4 2 9-11" stroke="var(--color-discovery)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="15" r="1.5" fill="var(--color-discovery)" opacity="0.4"/><circle cx="12" cy="17" r="1.5" fill="var(--color-discovery)" opacity="0.4"/><circle cx="21" cy="6" r="1.5" fill="var(--color-discovery)"/></svg>
+        </div>
+        <div class="obs-layer-content">
+          <h3>Work progress</h3>
+          <p>Lead times measured from actual work state, not ticket updates. See where cycles stall before they become multi-week delays.</p>
+        </div>
+      </div>
+
+      <div class="obs-layer">
+        <div class="obs-layer-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="5" r="3" stroke="#6d5ff5" stroke-width="1.5"/><circle cx="4" cy="19" r="3" stroke="#6d5ff5" stroke-width="1.5"/><circle cx="20" cy="19" r="3" stroke="#6d5ff5" stroke-width="1.5"/><path d="M10 7.5L6 16.5M14 7.5l4 9" stroke="#6d5ff5" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="13" r="1.5" fill="#6d5ff5" opacity="0.4"/></svg>
+        </div>
+        <div class="obs-layer-content">
+          <h3>Agent consensus</h3>
+          <p>Multiple agents independently assess quality, coverage, and rollout risk. Below threshold, the release holds.</p>
+        </div>
+      </div>
+
+      <div class="obs-layer">
+        <div class="obs-layer-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" stroke="var(--color-gate)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" stroke="var(--color-gate)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="obs-layer-content">
+          <h3>Nothing breaks the chain</h3>
+          <p>An agent crashes mid-task. State persists. A replacement picks up exactly where it left off. No lost work, no stuck workflows.</p>
+        </div>
+      </div>
+
+      <div class="obs-layer">
+        <div class="obs-layer-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="2" fill="var(--color-accent)" stroke="var(--color-accent)" stroke-width="1.5"/><path d="M16.24 7.76a6 6 0 010 8.49M7.76 16.24a6 6 0 010-8.49" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 19.07a10 10 0 010-14.14" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/></svg>
+        </div>
+        <div class="obs-layer-content">
+          <h3>Presence</h3>
+          <p>Real-time view of every agent and human assignment. Stale work auto-escalates before anyone has to chase it.</p>
+        </div>
+      </div>
+
+      <div class="obs-layer">
+        <div class="obs-layer-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="6" cy="6" r="2.5" stroke="var(--color-accent)" stroke-width="1.5"/><circle cx="18" cy="6" r="2.5" stroke="var(--color-accent)" stroke-width="1.5"/><circle cx="12" cy="19" r="2.5" stroke="var(--color-accent)" stroke-width="1.5"/><path d="M7.5 8.5L12 16.5M16.5 8.5L12 16.5" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="obs-layer-content">
+          <h3>Conflict resolution</h3>
+          <p>Concurrent edits resolved automatically. No overwrites, no manual merges, no blocked workflows.</p>
+        </div>
+      </div>
+
+      <div class="obs-layer">
+        <div class="obs-layer-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="10" r="2" stroke="var(--color-accent)" stroke-width="1.5"/><path d="M12 12v3" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="obs-layer-content">
+          <h3>Context in place</h3>
+          <p>Discussions, decisions, and rationale live on the artifact itself. No context lost to side channels.</p>
+        </div>
+      </div>
+
+      <div class="obs-layer">
+        <div class="obs-layer-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="6" rx="8" ry="3" stroke="var(--color-discovery)" stroke-width="1.5"/><path d="M4 6v12c0 1.66 3.58 3 8 3s8-1.34 8-3V6" stroke="var(--color-discovery)" stroke-width="1.5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" stroke="var(--color-discovery)" stroke-width="1.5"/></svg>
+        </div>
+        <div class="obs-layer-content">
+          <h3>Memory</h3>
+          <p>Solved a flaky test last sprint? The testing agent remembers the fix pattern and applies it when the same symptom appears. Teams spend less time re-solving known problems.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================ 5. ORCHESTRATION ================================ -->
+<section class="orchestration section-dark" id="orchestration">
+  <div class="container">
+    <div class="orchestration-header reveal">
+      <h2 class="headline-lg">As much autonomy as you trust. As much control as you need.</h2>
+    </div>
+
+    <!-- Interactive orchestration demo -->
+    <div class="orch-demo reveal" id="orchDemo">
+      <!-- Config cards as selectors -->
+      <div class="orch-config-nav">
+        <div class="autonomy-examples">
+          <div class="autonomy-example autonomy-example--active" data-level="l0">
+            <span class="autonomy-example-name">Priority decisions</span>
+            <span class="autonomy-example-level level-l0">L0 Manual</span>
+          </div>
+          <div class="autonomy-example" data-level="l1">
+            <span class="autonomy-example-name">Code review</span>
+            <span class="autonomy-example-level level-l1">L1 Approval</span>
+          </div>
+          <div class="autonomy-example" data-level="l2">
+            <span class="autonomy-example-name">Deploys</span>
+            <span class="autonomy-example-level level-l2">L2 Supervised</span>
+          </div>
+          <div class="autonomy-example" data-level="l3">
+            <span class="autonomy-example-name">Feedback triage</span>
+            <span class="autonomy-example-level level-l3">L3 Autopilot</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage -->
+      <div class="orch-demo-stage">
+
+        <!-- Scenario: L0 Manual -->
+        <div class="orch-scenario orch-scenario--active" data-scenario="l0">
+          <div class="orch-timeline">
+
+            <div class="orch-step" data-step="1">
+              <div class="orch-step-marker">
+                <div class="orch-step-dot orch-step-dot--gate"></div>
+                <div class="orch-step-line"></div>
+              </div>
+              <div class="orch-step-content">
+                <div class="orch-agent-card">
+                  <div class="orch-agent-avatar orch-agent-avatar--bf">PR</div>
+                  <div class="orch-agent-info">
+                    <span class="orch-agent-name">Priority Reviewer</span>
+                    <span class="orch-agent-action">Packages search UX redesign opportunity</span>
+                  </div>
+                  <span class="orch-agent-badge orch-agent-badge--manual">assist</span>
+                </div>
+                <div class="orch-reason mono">Agent assembles context. Human makes the decision and sets the priority.</div>
+              </div>
+            </div>
+
+            <div class="orch-step" data-step="2">
+              <div class="orch-step-marker">
+                <div class="orch-step-dot orch-step-dot--gate"></div>
+                <div class="orch-step-line"></div>
+              </div>
+              <div class="orch-step-content">
+                <div class="orch-approval-box">
+                  <span class="orch-approval-label">Human sets the priority directly</span>
+                  <div class="orch-approval-actions">
+                    <button class="orch-btn-approve" id="orchBtnWrite">Set priority</button>
+                    <button class="orch-btn-dismiss">Skip</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="orch-step" data-step="3">
+              <div class="orch-step-marker">
+                <div class="orch-step-dot orch-step-dot--result"></div>
+              </div>
+              <div class="orch-step-content">
+                <div class="orch-result">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#2d8a5e" stroke-width="1.5"/><path d="M5.5 9.5l2 2 5-5" stroke="#2d8a5e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>Priority set: Search UX redesign, 6-week appetite, 2 engineers.</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Scenario: L1 Approval Gate -->
+        <div class="orch-scenario" data-scenario="l1">
+          <div class="orch-timeline">
+
+            <div class="orch-step" data-step="1">
+              <div class="orch-step-marker">
+                <div class="orch-step-dot orch-step-dot--proposal"></div>
+                <div class="orch-step-line"></div>
+              </div>
+              <div class="orch-step-content">
+                <div class="orch-agent-card">
+                  <div class="orch-agent-avatar orch-agent-avatar--qs">QS</div>
+                  <div class="orch-agent-info">
+                    <span class="orch-agent-name">Quality Sentinel</span>
+                    <span class="orch-agent-action">Proposes blocking payment-flow PR #318</span>
+                  </div>
+                  <span class="orch-agent-badge orch-agent-badge--proposed">proposed</span>
+                </div>
+                <div class="orch-reason mono">Branch coverage 61%, below 80% threshold. 3 untested error paths.</div>
+              </div>
+            </div>
+
+            <div class="orch-step" data-step="2">
+              <div class="orch-step-marker">
+                <div class="orch-step-dot orch-step-dot--gate"></div>
+                <div class="orch-step-line"></div>
+              </div>
+              <div class="orch-step-content">
+                <div class="orch-approval-box">
+                  <span class="orch-approval-label">Awaiting human approval</span>
+                  <div class="orch-approval-actions">
+                    <button class="orch-btn-approve" id="orchBtnApprove">Approve</button>
+                    <button class="orch-btn-dismiss">Dismiss</button>
+                  </div>
+                  <div class="orch-sim-cursor" id="orchCursor">
+                    <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+                      <path d="M1 1l4.5 17 2.8-6.3L15 9.5 1 1z" fill="#fff" stroke="#000" stroke-width="0.8"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="orch-step" data-step="2b">
+              <div class="orch-step-marker">
+                <div class="orch-step-dot orch-step-dot--verify"></div>
+                <div class="orch-step-line"></div>
+              </div>
+              <div class="orch-step-content">
+                <div class="orch-verify-box">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2d8a5e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>Checkpoint — action matches goal: block low-coverage PR. Proceeding.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="orch-step" data-step="3">
+              <div class="orch-step-marker">
+                <div class="orch-step-dot orch-step-dot--result"></div>
+              </div>
+              <div class="orch-step-content">
+                <div class="orch-result">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#2d8a5e" stroke-width="1.5"/><path d="M5.5 9.5l2 2 5-5" stroke="#2d8a5e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>PR #318 blocked. Author notified. Coverage report attached.</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Scenario: L2 Supervised -->
+        <div class="orch-scenario" data-scenario="l2">
+          <div class="orch-timeline">
+
+            <div class="orch-step" data-step="1">
+              <div class="orch-step-marker">
+                <div class="orch-step-dot orch-step-dot--auto"></div>
+                <div class="orch-step-line"></div>
+              </div>
+              <div class="orch-step-content">
+                <div class="orch-agent-card">
+                  <div class="orch-agent-avatar orch-agent-avatar--rc">RC</div>
+                  <div class="orch-agent-info">
+                    <span class="orch-agent-name">Rollout Controller</span>
+                    <span class="orch-agent-action">Promotes auth-v2 canary from 5% to 25%</span>
+                  </div>
+                  <span class="orch-agent-badge orch-agent-badge--supervised">supervised</span>
+                </div>
+                <div class="orch-reason mono">Error rate 0.02%, below 0.5% threshold. Auto-approves in 30 minutes if no override.</div>
+              </div>
+            </div>
+
+            <div class="orch-step" data-step="2">
+              <div class="orch-step-marker">
+                <div class="orch-step-dot orch-step-dot--gate"></div>
+                <div class="orch-step-line"></div>
+              </div>
+              <div class="orch-step-content">
+                <div class="orch-approval-box orch-approval-box--timeout">
+                  <span class="orch-approval-label">Auto-approves in <span class="mono">29:47</span> unless overridden</span>
+                  <div class="orch-approval-actions">
+                    <button class="orch-btn-dismiss">Override</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="orch-step" data-step="2b">
+              <div class="orch-step-marker">
+                <div class="orch-step-dot orch-step-dot--verify"></div>
+                <div class="orch-step-line"></div>
+              </div>
+              <div class="orch-step-content">
+                <div class="orch-verify-box">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8l3 3 5-5" stroke="#2d8a5e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>Checkpoint — action matches goal: promote canary at safe error rate. Proceeding.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="orch-step" data-step="3">
+              <div class="orch-step-marker">
+                <div class="orch-step-dot orch-step-dot--result"></div>
+              </div>
+              <div class="orch-step-content">
+                <div class="orch-result">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#2d8a5e" stroke-width="1.5"/><path d="M5.5 9.5l2 2 5-5" stroke="#2d8a5e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>auth-v2 promoted to 25%. Monitoring continues. Next gate at 50%.</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Scenario: L3 Autopilot -->
+        <div class="orch-scenario" data-scenario="l3">
+          <div class="orch-timeline">
+
+            <div class="orch-step" data-step="1">
+              <div class="orch-step-marker">
+                <div class="orch-step-dot orch-step-dot--auto"></div>
+                <div class="orch-step-line"></div>
+              </div>
+              <div class="orch-step-content">
+                <div class="orch-agent-card">
+                  <div class="orch-agent-avatar orch-agent-avatar--sh">IH</div>
+                  <div class="orch-agent-info">
+                    <span class="orch-agent-name">Intake Harvester</span>
+                    <span class="orch-agent-action">Clusters 47 feedback items into 3 themes</span>
+                  </div>
+                  <span class="orch-agent-badge orch-agent-badge--auto">auto</span>
+                </div>
+                <div class="orch-reason mono">No approval needed at L3. Theme Analyst validates clusters, Priority Reviewer queues top themes for next cycle.</div>
+              </div>
+            </div>
+
+            <div class="orch-step" data-step="2">
+              <div class="orch-step-marker">
+                <div class="orch-step-dot orch-step-dot--result"></div>
+                <div class="orch-step-line"></div>
+              </div>
+              <div class="orch-step-content">
+                <div class="orch-result">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#2d8a5e" stroke-width="1.5"/><path d="M5.5 9.5l2 2 5-5" stroke="#2d8a5e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>3 themes created: Billing UX (23 items), Onboarding (15), API errors (9)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="orch-step" data-step="3">
+              <div class="orch-step-marker">
+                <div class="orch-step-dot orch-step-dot--digest"></div>
+              </div>
+              <div class="orch-step-content">
+                <div class="orch-digest">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="4" width="14" height="10" rx="2" stroke="var(--color-text-secondary-dark)" stroke-width="1.2"/><path d="M2 6l7 4.5L16 6" stroke="var(--color-text-secondary-dark)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>3 agents acted, 47 items triaged, 3 themes queued. No items need your attention.</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================ 6. COLLABORATION ================================ -->
+<section class="git-native section-dark" id="git-native">
+  <div class="container">
+    <h2 class="visually-hidden">Parallel paths and rollback</h2>
+    <div class="obs-git-grid reveal">
+      <div class="obs-git-card">
+        <div class="obs-git-card-label">Parallel paths, shared context</div>
+        <div class="obs-git-concepts">
+          <div class="obs-graph">
+            <svg class="obs-graph-svg" viewBox="0 0 60 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="16" y1="0" x2="16" y2="200" stroke="var(--color-operations)" stroke-width="2" opacity="0.5"/>
+              <path d="M16 32 C16 44, 36 44, 36 56" stroke="var(--color-discovery)" stroke-width="2" fill="none"/>
+              <line x1="36" y1="56" x2="36" y2="120" stroke="var(--color-discovery)" stroke-width="2" opacity="0.5"/>
+              <path d="M16 68 C16 80, 50 80, 50 92" stroke="var(--color-delivery)" stroke-width="2" fill="none"/>
+              <line x1="50" y1="92" x2="50" y2="148" stroke="var(--color-delivery)" stroke-width="2" opacity="0.5"/>
+              <path d="M50 148 C50 160, 16 160, 16 172" stroke="var(--color-delivery)" stroke-width="2" fill="none"/>
+              <path d="M36 120 C36 136, 16 136, 16 148" stroke="var(--color-discovery)" stroke-width="2" fill="none" stroke-dasharray="4 3"/>
+              <circle cx="16" cy="16" r="5" fill="var(--color-operations)"/>
+              <circle cx="16" cy="68" r="4" fill="var(--color-operations)"/>
+              <circle cx="16" cy="148" r="4" fill="var(--color-operations)"/>
+              <circle cx="16" cy="172" r="5" fill="var(--color-operations)"/>
+              <circle cx="16" cy="192" r="4" fill="var(--color-operations)"/>
+              <circle cx="36" cy="56" r="4" fill="var(--color-discovery)"/>
+              <circle cx="36" cy="88" r="4" fill="var(--color-discovery)"/>
+              <circle cx="36" cy="120" r="4" fill="var(--color-discovery)" opacity="0.5"/>
+              <circle cx="50" cy="92" r="4" fill="var(--color-delivery)"/>
+              <circle cx="50" cy="120" r="4" fill="var(--color-delivery)"/>
+              <circle cx="50" cy="148" r="4" fill="var(--color-delivery)"/>
+            </svg>
+            <div class="obs-graph-labels">
+              <div class="obs-graph-label" style="top: 8px;">
+                <span class="obs-graph-label-name">Auth module v2</span>
+                <span class="obs-graph-label-badge" style="background:rgba(45,138,94,0.12);color:var(--color-operations);">live</span>
+              </div>
+              <div class="obs-graph-label" style="top: 50px;">
+                <span class="obs-graph-label-name" style="color:var(--color-discovery);">Billing UX rethink</span>
+                <span class="obs-graph-label-badge" style="background:rgba(192,120,40,0.12);color:var(--color-discovery);">exploring</span>
+              </div>
+              <div class="obs-graph-label" style="top: 84px;">
+                <span class="obs-graph-label-name" style="color:var(--color-delivery);">Search perf fix</span>
+                <span class="obs-graph-label-badge" style="background:rgba(24,104,219,0.12);color:var(--color-delivery);">in review</span>
+              </div>
+              <div class="obs-graph-label" style="top: 140px;">
+                <span class="obs-graph-label-name">Search fix accepted</span>
+                <span class="obs-graph-label-badge" style="background:rgba(45,138,94,0.12);color:var(--color-operations);">&#x2713;</span>
+              </div>
+              <div class="obs-graph-label" style="top: 112px; opacity: 0.5;">
+                <span class="obs-graph-label-name" style="color:var(--color-discovery);">Billing rethink closed</span>
+              </div>
+              <div class="obs-graph-label" style="top: 166px;">
+                <span class="obs-graph-label-name">Payment webhooks</span>
+                <span class="obs-graph-label-badge" style="background:rgba(45,138,94,0.12);color:var(--color-operations);">next up</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="obs-git-card">
+        <div class="obs-git-card-label">Rollback and roll forward</div>
+        <div class="obs-git-concepts">
+          <div class="obs-rollback-timeline">
+            <div class="obs-timeline-event">
+              <div class="obs-timeline-label">v2.4.1 deployed</div>
+              <div class="obs-timeline-meta">72h uptime · 0 errors</div>
+            </div>
+            <div class="obs-timeline-event obs-timeline-event--spike">
+              <div class="obs-timeline-label">v2.5.0 deployed</div>
+              <div class="obs-timeline-meta">Checkout latency +340ms · 12m runtime</div>
+            </div>
+            <div class="obs-timeline-event obs-timeline-event--rollback">
+              <div class="obs-timeline-label">Rollback to v2.4.1</div>
+              <div class="obs-timeline-meta">Executed in 8s · zero downtime</div>
+            </div>
+            <div class="obs-timeline-event">
+              <div class="obs-timeline-label">v2.5.1 deployed (new branch)</div>
+              <div class="obs-timeline-meta">Latency fixed · shipping from parallel path</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ 7. CTA ================================ -->
+<section class="final-cta section-light" id="cta">
+  <div class="container">
+    <h2 class="headline-lg reveal">Product lifecycle collaboration<br>that <span class="text-accent">never stalls</span>.</h2>
+    <p class="final-cta-sub reveal">Works with Claude Code, Cursor, Copilot, GitHub, Jira, Linear, Slack. Your tools stay. Vibecycle coordinates everything between them.</p>
+    <div class="reveal">
+      <a href="https://calendly.com/lalit-lmc/30min" target="_blank" class="btn-primary">Integrate into your tools</a>
+    </div>
+    <div class="final-cta-trust reveal" style="margin-top: 2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; font-size: 0.875rem; color: var(--color-text-secondary);">
+      <span style="display: flex; align-items: center; gap: 0.5rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-operations)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Free for up to 5 people
+      </span>
+      <span style="display: flex; align-items: center; gap: 0.5rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-operations)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        5-minute setup
+      </span>
+      <span style="display: flex; align-items: center; gap: 0.5rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-operations)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+        Cancel anytime
+      </span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================ FOOTER ================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#board" class="nav-logo">
+          <svg class="nav-logo-mark" width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <circle cx="16" cy="16" r="13" stroke="#4dabf5" stroke-width="3" stroke-linecap="round" stroke-dasharray="22.7 59" transform="rotate(-90 16 16)"/>
+            <circle cx="16" cy="16" r="10" stroke="#1868db" stroke-width="3" stroke-linecap="round" stroke-dasharray="17.5 45.3" transform="rotate(30 16 16)"/>
+            <circle cx="16" cy="16" r="7" stroke="#6d5ff5" stroke-width="3" stroke-linecap="round" stroke-dasharray="12.2 31.8" transform="rotate(150 16 16)"/>
+          </svg>
+          <span class="nav-logo-word">vibe<strong>cycle</strong></span>
+        </a>
+        <p class="footer-tagline">From ideation to production. One workspace.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-heading">Product</div>
+          <a href="#board">How it works</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-heading">Resources</div>
+          <a href="#board">Documentation</a>
+          <a href="#board">API Reference</a>
+          <a href="#board">Changelog</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-heading">Company</div>
+          <a href="#board">About</a>
+          <a href="#board">Blog</a>
+          <a href="#board">Careers</a>
+          <a href="#board">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 vibecycle. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#board">Privacy</a>
+        <a href="#board">Terms</a>
+        <a href="#board">Security</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- JS -->
+<script src="js/reveals.js" defer></script>
+<script src="js/pipeline-squeeze.js" defer></script>
+<script src="js/orchestration-demo.js" defer></script>
+<script src="js/hero-feed.js" defer></script>
+<script src="js/favicon-orbit.js" defer></script>
+</body>
+</html>

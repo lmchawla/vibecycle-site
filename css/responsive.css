@@ -1,0 +1,325 @@
+/* =========================================
+   ALL MEDIA QUERIES CONSOLIDATED
+   (loads last — overrides section CSS)
+   ========================================= */
+
+/* --- Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .obs-live-dot, .obs-agent-dot { animation: none !important; }
+  .autonomy-indicator { transition: none !important; }
+  .dur-agent-dot--active, .dur-agent-dot--new { animation: none !important; opacity: 1; }
+  .dur-progress-bar { transition: none !important; }
+  .dur-node { transition: none !important; }
+  .demo-sa-dot.bg-worker { animation: none !important; opacity: 0.5; }
+  .merge-cursor-a, .merge-cursor-b, .merge-flash { animation: none !important; }
+  .merge-cursor-a { opacity: 0; }
+  .merge-cursor-b { opacity: 0; }
+  .merge-flash { opacity: 1; }
+}
+
+/* =========================================
+   LARGE TABLET (max-width: 1024px)
+   ========================================= */
+@media (max-width: 1024px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .hero-text { max-width: 100%; }
+  .hero-visual { max-width: 560px; }
+}
+
+/* =========================================
+   TABLET (max-width: 768px)
+   ========================================= */
+@media (max-width: 768px) {
+  /* --- Section spacing --- */
+  .observability { padding: 48px 0 36px; }
+  .orchestration { padding: 48px 0 60px; }
+  .problem-section { padding: 48px 0; }
+  .board-section { padding: 24px 0 48px; }
+
+  .final-cta { padding: 60px 0; }
+
+  /* --- Board sidebar: compact on tablet --- */
+  .demo-sidebar {
+    display: flex;
+    width: 80px;
+    padding: 8px 6px;
+  }
+  .demo-sv { font-size: 0.55rem; padding: 4px 5px; gap: 4px; }
+  .demo-sv-icon { font-size: 0.5rem; width: 12px; }
+  .demo-sv-badge { font-size: 0.4rem; }
+  .demo-sidebar-label { font-size: 0.45rem; }
+  .demo-st { font-size: 0.52rem; padding: 2px 5px; gap: 4px; }
+  .demo-st-dot { width: 5px; height: 5px; }
+  .demo-sa { gap: 3px; padding: 2px 5px; }
+  .demo-sa-name { font-size: 0.5rem; }
+  .demo-sa-status { display: none; }
+  .demo-sa-dot { width: 5px; height: 5px; }
+  .demo-st-count { font-size: 0.48rem; }
+
+  /* --- Git section: hide on tablet/mobile --- */
+  .git-native { display: none; }
+
+  /* --- Problem --- */
+  .problem-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .problem-visual.problem-split {
+    grid-template-columns: 1fr;
+  }
+  .problem-split-left {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  /* --- Observability layers: 2-col, collapsible --- */
+  .obs-layers-horizontal {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .obs-layers-horizontal .obs-layer {
+    cursor: pointer;
+    position: relative;
+  }
+  .obs-layers-horizontal .obs-layer-content h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .obs-layers-horizontal .obs-layer-content h3::after {
+    content: '+';
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--color-text-secondary-light);
+    flex-shrink: 0;
+    margin-left: 8px;
+    transition: transform 0.2s ease;
+  }
+  .obs-layers-horizontal .obs-layer--open .obs-layer-content h3::after {
+    content: '\2212';
+  }
+  .obs-layers-horizontal .obs-layer-content p {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+  }
+  .obs-layers-horizontal .obs-layer--open .obs-layer-content p {
+    max-height: 200px;
+    opacity: 1;
+  }
+
+  /* --- Durability demos: full-width on stacked layout --- */
+  .dur-demo { padding: 8px 10px; }
+  .dur-node { font-size: 0.58rem; padding: 2px 6px; }
+  .dur-agent { font-size: 0.58rem; }
+
+  /* --- Observability dashboard --- */
+  .obs-dash-body { grid-template-columns: 1fr; }
+  .obs-agents-panel { border-right: none; border-bottom: 1px solid var(--color-border-dark); }
+  .obs-feed-item { grid-template-columns: 50px 1fr; }
+  .obs-feed-agent { display: none; }
+  .obs-metrics-strip { grid-template-columns: 1fr 1fr; }
+  .obs-git-grid { grid-template-columns: 1fr; }
+
+  /* --- Orchestration Gates --- */
+  .gates-grid { grid-template-columns: 1fr 1fr; }
+
+  /* --- Footer --- */
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-links { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+}
+
+/* =========================================
+   SMALL TABLET / LARGE PHONE (max-width: 640px)
+   ========================================= */
+@media (max-width: 640px) {
+  /* --- Hero --- */
+  .hero {
+    padding: 100px 0 60px;
+    min-height: auto;
+  }
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-ghost { width: 100%; }
+
+  /* --- Orchestration autonomy nav (4-col → 2-col) --- */
+  .autonomy-label-item .level-desc { font-size: 0.6rem; }
+  .autonomy-label-row { gap: 8px; }
+  .autonomy-example-name { font-size: 0.78rem; }
+  .autonomy-example-level { font-size: 0.65rem; padding: 2px 6px; }
+
+  /* --- Orchestration demo (mirror section-file rules) --- */
+  .orch-demo { max-width: 100%; }
+  .orch-agent-card { flex-wrap: wrap; gap: 8px; }
+  .orch-agent-badge { margin-left: 40px; }
+  .orch-demo-stage { min-height: 280px; }
+  .orch-config-nav .autonomy-examples {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .orch-verify-box { padding: 10px 12px; font-size: 0.72rem; }
+
+  /* --- Board demo: scale down between tablet and phone --- */
+  .demo-board { padding: 10px 12px; }
+  .demo-col-head { font-size: 0.65rem; margin-bottom: 8px; }
+  .demo-col-cards { max-height: 300px; }
+  .demo-card-title { font-size: 0.78rem; }
+
+  /* --- Git graph: intermediate height --- */
+  .obs-graph { min-height: 160px; }
+  .obs-graph-svg { height: 160px; }
+
+  /* --- CTA --- */
+  .final-cta .btn-primary {
+    padding: 16px 36px;
+    font-size: 1rem;
+  }
+  .final-cta-sub { font-size: 1rem; }
+
+  /* --- Footer --- */
+  .footer-content { flex-direction: column; gap: 16px; }
+}
+
+/* =========================================
+   PHONE (max-width: 480px)
+   ========================================= */
+@media (max-width: 480px) {
+  /* --- Container tighter padding --- */
+  .container { padding: 0 16px; }
+
+  /* --- Section spacing --- */
+  .observability { padding: 36px 0 28px; }
+  .orchestration { padding: 36px 0 48px; }
+  .final-cta { padding: 48px 0; }
+  .footer { padding: 48px 0 24px; }
+
+  /* --- Board sidebar: extra compact on phone --- */
+  .demo-sidebar { width: 60px; padding: 6px 4px; }
+  .demo-sv { font-size: 0.48rem; padding: 3px 4px; gap: 3px; }
+  .demo-sv-icon { font-size: 0.45rem; width: 10px; }
+  .demo-sv-badge { font-size: 0.35rem; padding: 0 3px; }
+  .demo-sidebar-label { font-size: 0.4rem; }
+  .demo-st { font-size: 0.45rem; padding: 2px 4px; gap: 3px; }
+  .demo-st-dot { width: 4px; height: 4px; }
+  .demo-st-count { font-size: 0.4rem; }
+  .demo-sa { gap: 2px; padding: 2px 4px; }
+  .demo-sa-name { font-size: 0.45rem; }
+  .demo-sa-dot { width: 4px; height: 4px; }
+
+  /* --- Orchestration --- */
+  .gates-grid { grid-template-columns: 1fr; }
+  .orch-config-nav { padding: 16px 16px 12px; }
+  .orch-step { gap: 12px; }
+  .orch-agent-card { padding: 10px 12px; gap: 8px; }
+  .orch-agent-name { font-size: 0.78rem; }
+  .orch-agent-action { font-size: 0.72rem; }
+  .orch-reason { font-size: 0.7rem; padding: 8px 10px; }
+  .orch-approval-box { padding: 12px 14px; }
+  .orch-approval-label { font-size: 0.78rem; }
+  .orch-result { font-size: 0.78rem; padding: 10px 12px; }
+  .orch-digest { font-size: 0.78rem; padding: 10px 12px; }
+  .orch-verify-box { padding: 8px 10px; font-size: 0.7rem; }
+
+  /* --- Consensus visual: tighter on phone --- */
+  .obs-consensus-agent { font-size: 0.62rem; width: 20px; }
+  .obs-consensus-vote { font-size: 0.52rem; width: 30px; padding: 1px 4px; }
+  .obs-consensus-pct { font-size: 0.58rem; width: 24px; }
+  .obs-consensus-result { font-size: 0.65rem; }
+
+  /* --- Durability demos + merge anim: smaller on phone --- */
+  .dur-node { font-size: 0.55rem; padding: 2px 5px; }
+  .dur-agent { font-size: 0.55rem; }
+  .dur-progress { width: 36px; }
+  .merge-anim { height: 24px; }
+  .merge-cursor-a, .merge-cursor-b { font-size: 0.6rem; padding: 1px 4px; }
+  .merge-flash { font-size: 0.6rem; }
+
+  /* --- Problem cards: 1-col on phone --- */
+  .pc-grid { grid-template-columns: 1fr; }
+
+  /* --- Observability --- */
+  .obs-metrics-strip { grid-template-columns: 1fr; }
+  .obs-agent-row { grid-template-columns: 8px 1fr auto; }
+  .obs-agent-status { display: none; }
+  .obs-layers-horizontal {
+    grid-template-columns: 1fr;
+  }
+  .obs-layer-content h3 { font-size: 0.85rem; }
+  .obs-layers-horizontal .obs-layer-content p { font-size: 0.78rem; }
+  .obs-graph-label-name { font-size: 0.65rem; }
+  .obs-graph-label-badge { font-size: 0.55rem; padding: 1px 5px; }
+  .obs-undo-text { font-size: 0.65rem; }
+
+  /* --- Git graph: stack SVG + labels vertically --- */
+  .obs-graph { flex-direction: column; min-height: auto; }
+  .obs-graph-svg { width: 100%; height: 120px; }
+  .obs-graph-labels {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .obs-graph-label { position: static; }
+
+  /* --- Board demo: tighter on phone --- */
+  .demo-board-cols {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+  .demo-col { min-width: 80px; }
+  .demo-col-head { font-size: 0.6rem; }
+  .demo-card-title { font-size: 0.75rem; }
+
+  /* --- CTA full-width button --- */
+  .final-cta .btn-primary {
+    padding: 14px 28px;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* --- Footer --- */
+  .footer-links { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+
+/* =========================================
+   SMALL PHONE (max-width: 360px)
+   ========================================= */
+@media (max-width: 360px) {
+  /* --- Autonomy nav: 2-col → 1-col on very small screens --- */
+  .orch-config-nav .autonomy-examples {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Headline sizing --- */
+  .problem-section h2 { font-size: clamp(1.5rem, 5vw, 2rem); }
+  .orchestration-header h2 { font-size: clamp(1.5rem, 5vw, 2rem); }
+  .obs-header h2 { font-size: clamp(1.5rem, 5vw, 2rem); }
+
+  /* --- Tighter agent card on tiny screens --- */
+  .orch-agent-avatar { width: 24px; height: 24px; font-size: 0.55rem; }
+  .orch-agent-badge { font-size: 0.6rem; padding: 2px 6px; }
+
+  /* --- Consensus: minimal on tiny screens --- */
+  .obs-consensus-bar { height: 4px; }
+  .obs-consensus-vote { font-size: 0.48rem; width: 26px; }
+  .obs-consensus-pct { font-size: 0.52rem; }
+
+  /* --- Git graph labels: tighter on small phones --- */
+  .obs-graph-label-name { font-size: 0.6rem; }
+  .obs-graph-label-badge { font-size: 0.5rem; padding: 1px 4px; }
+
+  /* --- Durability demos: stack when needed --- */
+  .dur-arrow { display: none; }
+  .dur-track { gap: 4px; }
+  .dur-agents-row { gap: 4px; }
+}
+
